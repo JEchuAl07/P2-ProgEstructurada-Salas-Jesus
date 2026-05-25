@@ -1,6 +1,6 @@
 """
 Nombre del Alumno: Jesús Francisco Salas Palmeros
-Matrícula: [Tu Matrícula]
+Matrícula: UX25II112
 Fecha: 25 de Mayo de 2026
 Examen Segundo Parcial - Programación Estructurada
 """
