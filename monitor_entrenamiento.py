@@ -87,13 +87,6 @@ def analizar_rendimiento(lista_loss):
  Usa la biblioteca 'statistics' para analizar el comportamiento del entrenamiento.
  Requisitos: 3 llamadas distintas a la biblioteca 'statistics'.
  """
-    # TODO: Implementar lógica
-    return {}
-def calcular_rmse(predicciones, reales):
- """
- Usa la biblioteca 'math' para calcular el Root Mean Squared Error (RMSE).
- Requisitos: 3 llamadas distintas a la biblioteca 'math'.
- """
     if len(lista_loss) == 0 or len(lista_latencia) == 0:
         print("Error: No hay suficientes datos para calcular el RMSE.")
         return 
@@ -110,6 +103,28 @@ def calcular_rmse(predicciones, reales):
     print(f"Media del Loss: {media_loss:.4f}")
     print(f"Desviación Estándar del Loss: {desviacion_loss:.4f}")
     print(f"Mediana de la Latencia: {mediana_latencia:.2f} ms")
+def calcular_rmse(predicciones, reales):
+ """
+ Usa la biblioteca 'math' para calcular el Root Mean Squared Error (RMSE).
+ Requisitos: 3 llamadas distintas a la biblioteca 'math'.
+ """
+    if len(predicciones) != len(reales):
+        print("Error: Las listas de predicciones y reales deben tener la misma longitud.")
+        return 0.0
+
+    suma_diferencias = 0.0
+    for i in range(len(predicciones)):
+        diferencia = predicciones[i] - reales[i]
+        suma_diferencias += math.pow(diferencia, 2)
+    
+    media_diferencias = suma_diferencias / len(predicciones)
+
+    rmse_final = math.sqrt(media_diferencias)
+ 
+    rmse_absoluto = math.fabs(rmse_final)
+ 
+    return rmse_absoluto
+    
 # ==========================================
 # 4. PROGRAMA PRINCIPAL (PUNTO DE ENTRADA)
 # ==========================================
