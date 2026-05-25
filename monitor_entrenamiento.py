@@ -94,8 +94,22 @@ def calcular_rmse(predicciones, reales):
  Usa la biblioteca 'math' para calcular el Root Mean Squared Error (RMSE).
  Requisitos: 3 llamadas distintas a la biblioteca 'math'.
  """
-    # TODO: Implementar lógica
-    return 0.0
+    if len(lista_loss) == 0 or len(lista_latencia) == 0:
+        print("Error: No hay suficientes datos para calcular el RMSE.")
+        return 
+    
+    media_loss = statistics.mean(lista_loss)
+
+    if len(lista_loss) > 1:
+        desviacion_loss = statistics.stdev(lista_loss)
+    else:        
+        desviacion_loss = 0.0
+    
+    meidiana_latencia = statistics.median(lista_latencia)
+
+    print(f"Media del Loss: {media_loss:.4f}")
+    print(f"Desviación Estándar del Loss: {desviacion_loss:.4f}")
+    print(f"Mediana de la Latencia: {mediana_latencia:.2f} ms")
 # ==========================================
 # 4. PROGRAMA PRINCIPAL (PUNTO DE ENTRADA)
 # ==========================================
